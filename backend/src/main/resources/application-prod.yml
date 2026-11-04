@@ -1,0 +1,45 @@
+# === 生产环境配置（2核2GB内存适配） ===
+
+spring:
+  jackson:
+    time-zone: Asia/Shanghai
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST:mysql}:3306/shenghuotiesql?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+      lettuce:
+        pool:
+          max-active: 4
+          max-idle: 4
+          min-idle: 1
+
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+app:
+  upload:
+    dir: ${UPLOAD_DIR:/data/uploads}
+  sms:
+    # 生产环境关闭控制台打印验证码（需接入真实短信服务）
+    console-print-code: false

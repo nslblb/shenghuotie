@@ -1,0 +1,119 @@
+# ==========================================================
+# 白名单模式：默认忽略所有内容，仅放行"运行项目所必需"的文件
+#
+# 规则说明：
+#   1. 若后续新增需要入库的文件，必须在下方显式放行（加 ! 前缀）
+#   2. 被忽略的目录不会进入 Git 历史，也不会被推送到 GitHub
+#   3. 敏感文件排除段置于文件末尾——Git 以"最后匹配的规则"为准，
+#      该段会覆盖上方所有放行规则，即使密钥文件落在已放行目录内也不会被提交
+# ==========================================================
+
+# ---------- 根目录：默认全部忽略 ----------
+/*
+!/.gitignore
+!/README.md
+# 如需公开开源许可证，取消下一行注释
+# !/LICENSE
+
+# ---------- 后端 ----------
+!/backend/
+/backend/*
+!/backend/src/
+!/backend/init.sql
+!/backend/pom.xml
+!/backend/mvnw
+!/backend/mvnw.cmd
+!/backend/.mvn/
+
+# 后端只保留 src/main，排除 src/test 与 target 等构建产物
+/backend/src/*
+!/backend/src/main/
+
+# ---------- 前端 ----------
+!/frontend/
+/frontend/*
+!/frontend/src/
+!/frontend/public/
+!/frontend/index.html
+!/frontend/package.json
+!/frontend/package-lock.json
+!/frontend/vite.config.ts
+!/frontend/tsconfig.json
+!/frontend/tsconfig.app.json
+!/frontend/tsconfig.node.json
+!/frontend/env.d.ts
+
+
+# ==========================================================
+# 敏感文件强制排除（优先级最高，会覆盖上方所有放行规则）
+#
+# 若确有例外需要公开（例如 .env.example 模板），
+# 必须在下方对应规则之后单独加 ! 规则，否则会被静默忽略。
+# 已跟踪文件不会被本段自动移除，需用 git rm --cached 处理。
+# ==========================================================
+
+# ---------- 环境变量文件 ----------
+.env
+.env.*
+*.env
+.envrc
+*.local
+
+# ---------- Spring Boot 本地 / 私密配置 ----------
+application-local.yml
+application-local.yaml
+application-local.properties
+application-secret.yml
+application-secret.properties
+application-prod-local.yml
+
+# ---------- 密钥与证书 ----------
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.der
+*.ppk
+*.crt
+*.cer
+
+# ---------- 凭据与认证文件 ----------
+credentials.json
+service-account*.json
+secrets.yml
+secrets.yaml
+.npmrc
+.netrc
+_netrc
+.pgpass
+.my.cnf
+.git-credentials
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# ---------- 数据库导出 / 备份（可能含真实用户数据） ----------
+*.dump
+*.sql.gz
+*.sql.bz2
+*.bak
+dump.sql
+
+# ---------- 日志 ----------
+*.log
+logs/
+
+# ---------- 运行时用户数据 ----------
+/backend/uploads/
+/uploads/
+
+# ---------- 构建产物与本地工具（白名单已覆盖，此处作为二次保险） ----------
+node_modules/
+dist/
+target/
+.trae/
+.idea/
+.vscode/

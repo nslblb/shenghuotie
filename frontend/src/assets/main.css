@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 输入框、文本域、可编辑元素：允许文本选择和文本光标 */
+input, textarea, [contenteditable="true"], select,
+.el-input__wrapper, .el-textarea__inner, .el-select .el-select__wrapper {
+  cursor: text;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* 帖子正文、评论内容等需要可选中的文本区域 */
+.post-body, .comment-text, .reply-text, .message-content {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+:root {
+  --primary: #ff2442;
+  --primary-light: #ff4d6a;
+  --primary-bg: #fdecef;
+  --text-primary: #292420;
+  --text-secondary: #57534e;
+  --text-muted: #a8a29e;
+  --bg-page: #f6f4ef;
+  --bg-card: #fff;
+  --bg-card-hover: #f5f2ec;
+  --border-color: rgba(60, 50, 40, 0.08);
+  --shadow-sm: 0 1px 3px rgba(60, 50, 40, 0.05);
+  --shadow-md: 0 6px 16px rgba(60, 50, 40, 0.08);
+  --shadow-lg: 0 10px 28px rgba(60, 50, 40, 0.1);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --navbar-bg: rgba(255, 255, 255, 0.88);
+  --navbar-shadow: 0 1px 0 rgba(60, 50, 40, 0.05);
+  --input-bg: #fff;
+  --input-border: #dcdfe6;
+  --input-fill: #efede6;
+  --input-fill-hover: #e8e5dc;
+  --skeleton-base: #f0ede6;
+  --skeleton-shine: #e7e3da;
+  --scrollbar-thumb: #d6d0c6;
+  --scrollbar-thumb-hover: #bfb8ab;
+  --highlight-bg: #fff566;
+  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+
+  /* Element Plus 主色统一为品牌红 */
+  --el-color-primary: #ff2442;
+  --el-color-primary-light-3: #ff5c74;
+  --el-color-primary-light-5: #ff8a9c;
+  --el-color-primary-light-7: #ffb9c5;
+  --el-color-primary-light-8: #ffcdd6;
+  --el-color-primary-light-9: #fff0f2;
+  --el-color-primary-dark-2: #e61e3c;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 全局默认光标为箭头 */
+#app {
+  min-height: 100vh;
+}
+
+/* 可交互元素及其子元素显示手型光标 */
+a, a *, button, button *, [role="button"], [role="button"] * {
+  cursor: pointer;
+}
+
+.keyword-highlight {
+  background: var(--highlight-bg);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
