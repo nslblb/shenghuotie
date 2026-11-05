@@ -133,16 +133,6 @@ npm run lint        # oxlint + eslint 检查并自动修复
 
 ***
 
-## 四、演示图片
-
-<img src="C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20261105094720395.png" alt="image-20261105094720395" style="zoom:80%;" />
-
-![image-20261105094807020](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20261105094807020.png)
-
-
-
-***
-
 ## 已知配置说明（注意与实际代码的差异）
 
 - 默认 profile 的 `spring.datasource.url` 与 `spring.data.redis.host` 为硬编码 `localhost`，`DB_HOST` / `REDIS_HOST` 仅在 `prod` profile 下生效。
