@@ -133,15 +133,17 @@ npm run lint        # oxlint + eslint 检查并自动修复
 
 ***
 
-## 四、演示地址
+## 四、演示图片
 
-项目演示地址：[生活贴](http://8.163.100.227/)\
-不要上传重要数据，手机号随便填就行
+<img src="C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20261105094720395.png" alt="image-20261105094720395" style="zoom:80%;" />
+
+![image-20261105094807020](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\image-20261105094807020.png)
+
+
 
 ***
 
 ## 已知配置说明（注意与实际代码的差异）
 
-- `EMBEDDING_ENABLED` 这个变量在本仓库的配置中**未被引用**：`application.yml` 里 `spring.ai.openai.embedding.enabled` 是硬编码的 `true`。设置该环境变量不会产生效果；如需要开关控制，需改造为 `${EMBEDDING_ENABLED:true}`。
 - 默认 profile 的 `spring.datasource.url` 与 `spring.data.redis.host` 为硬编码 `localhost`，`DB_HOST` / `REDIS_HOST` 仅在 `prod` profile 下生效。
 
